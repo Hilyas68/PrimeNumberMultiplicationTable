@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.Console;
 import java.util.ArrayList;
@@ -25,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
     static String[] spaceProbeHeaders= DisplayPrime(10);
    // static String[] spaceProbeHeaders= {"1","2","3","4","5","6","7","8","9","10"};
 
-     EditText numEditText;
-     Button mBtn;
      TableView<String[]> tableView;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -35,19 +34,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tableView = findViewById(R.id.tableView);
-        numEditText = findViewById(R.id.primeNumberEdt);
-        mBtn = findViewById(R.id.btn);
 
-         DisplayPrime(10);
-         numEditText.setText(returnTable(DisplayPrime(10)).toString());
-
-         mBtn.setOnClickListener(view -> {
-             tableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
-             tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this,spaceProbeHeaders));
-             tableView.setDataAdapter(new SimpleTableDataAdapter(this, returnTable(DisplayPrime(10))));
-             tableView.canScrollHorizontally(1);
-             tableView.setColumnCount(10);
-         });
+         tableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
+         tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, spaceProbeHeaders));
+         tableView.setDataAdapter(new SimpleTableDataAdapter(this, returnTable(DisplayPrime(10))));
+         tableView.canScrollHorizontally(10);
+         tableView.setColumnCount(8);
     }
 
     public static Boolean isPrime(int num)
