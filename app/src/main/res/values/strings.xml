@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PrimeNumMultiplicationTable</string>
+    <string name="no_prime">No of prime Numbers to Display</string>
+    <string name="display_table">Show Table</string>
+</resources>
